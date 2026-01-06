@@ -74,6 +74,8 @@ VRP::VRP(int n)
     total_route_length=0.0;
     best_known=VRP_INFINITY;
     depot_normalized=false; 
+    depot_offset_x=0.0;
+    depot_offset_y=0.0;
     // Will be set to true if we shift nodes so VRPH_DEPOT is at origin
     
     // These are for record-to-record travel
@@ -155,6 +157,8 @@ VRP::VRP(int n, int ndays)
     best_known=VRP_INFINITY;
 
     depot_normalized=false; 
+    depot_offset_x=0.0;
+    depot_offset_y=0.0;
     // Will be set to true if we shift nodes so VRPH_DEPOT is at origin
     
     // These are for record-to-record travel
@@ -316,6 +320,26 @@ int VRP::get_demand(int i)
 double VRP::get_distance(int i, int j)
 {
     return this->d[i][j];
+}
+
+double VRP::get_node_x(int i)
+{
+    return this->nodes[i].x;
+}
+
+double VRP::get_node_y(int i)
+{
+    return this->nodes[i].y;
+}
+
+double VRP::get_depot_offset_x()
+{
+    return this->depot_offset_x;
+}
+
+double VRP::get_depot_offset_y()
+{
+    return this->depot_offset_y;
 }
 
 void VRP::set_best_total_route_length(double val)
@@ -4431,4 +4455,3 @@ void VRP::reset()
     for(int j=1;j<=this->num_original_nodes;j++)
         this->routed[j]=false;
 }
-

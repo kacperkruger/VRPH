@@ -143,6 +143,10 @@ public:
     double get_max_route_length();
     int get_demand(int i);
     double get_distance(int i, int j);
+    double get_node_x(int i);
+    double get_node_y(int i);
+    double get_depot_offset_x();
+    double get_depot_offset_y();
 
     // Places to store unique solutions and routes - uses internal hash table
     VRPSolutionWarehouse *solution_wh; // To store additional solutions
@@ -210,6 +214,8 @@ private:
     // amounts, etc.
 
     bool depot_normalized;        // Set to true if VRPH_DEPOT coords normalized to origin
+    double depot_offset_x;
+    double depot_offset_y;
     // for Euclidean problem.
 
     bool forbid_tiny_moves;        // Set to true to prevent potentially nonsense moves

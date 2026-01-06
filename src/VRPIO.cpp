@@ -311,6 +311,8 @@ void VRP::read_TSPLIB_file(const char *node_file)
                 this->depot_normalized=true;
                 double depot_x=nodes[0].x;
                 double depot_y=nodes[0].y;
+                this->depot_offset_x=depot_x;
+                this->depot_offset_y=depot_y;
 
 #if TSPLIB_DEBUG
                 fprintf(stderr,"Normalizing...(%f,%f)\n",depot_x,depot_y);
@@ -1535,4 +1537,3 @@ void VRP::summary()
         }
     }
 }
-
