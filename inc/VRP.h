@@ -141,6 +141,8 @@ public:
     void set_best_total_route_length(double val);
     int get_max_veh_capacity();
     double get_max_route_length();
+    int get_demand(int i);
+    double get_distance(int i, int j);
 
     // Places to store unique solutions and routes - uses internal hash table
     VRPSolutionWarehouse *solution_wh; // To store additional solutions
@@ -371,5 +373,3 @@ private:
 };
 
 #endif
-
-

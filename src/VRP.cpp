@@ -308,6 +308,16 @@ double VRP::get_max_route_length()
     return this->max_route_length;     
 }
 
+int VRP::get_demand(int i)
+{
+    return this->nodes[i].demand;
+}
+
+double VRP::get_distance(int i, int j)
+{
+    return this->d[i][j];
+}
+
 void VRP::set_best_total_route_length(double val)
 {
     this->best_total_route_length=val;
