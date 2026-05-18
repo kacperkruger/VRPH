@@ -48,7 +48,8 @@ void VRP::read_TSPLIB_file(const char *node_file)
 
     for(;;)
     {
-        fgets(line, 100, infile);
+        if(fgets(line, VRPH_STRING_SIZE, infile)==NULL)
+            report_error("%s: unexpected EOF\n",__FUNCTION__);
 
 #if TSPLIB_DEBUG
         printf("Next line is %s\n",line);
@@ -466,7 +467,7 @@ void VRP::read_TSPLIB_file(const char *node_file)
             if(this->num_days<=1)
             {
                 i=0;
-                while(i<= num_nodes+1)
+                while(i<= num_nodes)
                 {
 
                     fscanf(infile,"%d %d\n",&x,&y);

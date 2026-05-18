@@ -51,7 +51,8 @@ const char *UnsupportedTSPLIBStrings[]=    {
     "TOUR_SECTION"
 };
 // The number of unsupported TSPLIB strings
-const int NumUnsupportedTSPLIBStrings = 20;
+const int NumUnsupportedTSPLIBStrings =
+    sizeof(UnsupportedTSPLIBStrings) / sizeof(UnsupportedTSPLIBStrings[0]);
 
 int VRPGetDimension(char *filename)
 {
